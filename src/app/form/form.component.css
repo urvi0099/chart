@@ -1,0 +1,24 @@
+form {
+  width: 500px;
+}
+span {
+  color: red;
+}
+
+input#name.form-control.ng-touched.ng-dirty.ng-valid {
+  background-color: none !important;
+}
+
+input.ng-invalid.ng-touched {
+  border-color: red;
+}
+.form-control {
+  box-shadow: none;
+  border-color: black;
+}
+.container {
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

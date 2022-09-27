@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="text-center">
+          <h1>Login</h1>
+          <!-- <h5>Please enter your Username and Password!!</h5> -->
+        </div>
+        <form [formGroup]="loginform" (ngSubmit)="loginuser()">
+          <div class="mb-3">
+            <label for="email" class="form-label">User Name</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="username"
+            />
+            <div
+              *ngIf="Username.invalid && (Username.dirty || Username.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="Username.hasError('required')">
+                Username is required.
+              </div>
+              <!-- <div *ngIf="Username.errors?.['email']">
+                Email must be a valid email address
+              </div> -->
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+            />
+            <div
+              *ngIf="Password.invalid && (Password.dirty || Password.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="Password.errors?.['required']">
+                Kindly fill the password.
+              </div>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="loginform.invalid"
+          >
+            Login
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary ms-3"
+            routerLink="/home"
+          >
+            Close
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

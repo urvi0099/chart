@@ -1,0 +1,47 @@
+<div class="alert alert-primary" role="alert">Your role is Admin!!</div>
+<table class="table m-3">
+  <thead>
+    <tr class="center-align">
+      <th scope="col">ID:</th>
+      <th scope="col">Submitted By:</th>
+      <th scope="col">Event Name:</th>
+      <th scope="col">Spend purpose:</th>
+      <th scope="col">EO Category:</th>
+      <th scope="col">Pay to:</th>
+      <th scope="col">Amount:</th>
+      <th scope="col">Status:</th>
+      <th scope="col">Action:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="center-align" *ngFor="let value of userdata">
+      <td scope="col">{{ value.id }}</td>
+      <td scope="col">{{ value.submitted_by }}</td>
+      <td scope="col">{{ value.event_name }}</td>
+      <td scope="col">{{ value.spend_purpose }}</td>
+      <td scope="col">{{ value.eo_category }}</td>
+      <td scope="col">{{ value.pay_to }}</td>
+      <td scope="col">{{ value.amount }}</td>
+      <td scope="col" style="width: 200px">
+        <span *ngIf="approve" style="color: blue" (click)="approve1()"
+          >Mark Approve</span
+        >
+        <span *ngIf="mark" style="color: red" (click)="mark1()">Mark Paid</span>
+        <span *ngIf="paid" style="color: green">Paid</span>
+      </td>
+      <td
+        scope="col"
+        (click)="deleteUser(value.id)"
+        style="color: red; cursor: pointer"
+      >
+        Delete
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 
+<span (click)="deleteUser(value.id)" style="color: red">
+  Delete &nbsp;
+</span>
+<span style="color: green">Edit</span> -->

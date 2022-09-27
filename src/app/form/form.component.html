@@ -1,0 +1,277 @@
+<div class="container">
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="registerUser()"
+    autocomplete="off"
+  >
+    <div class="row">
+      <div class="col text-center p-2 mb-3 bg-light">
+        <h1 class="fs-3">EO Reimbursement</h1>
+      </div>
+    </div>
+    <p>Please only enter your chair/role expense</p>
+    <div class="mb-3">
+      <label class="form-label">Chair Name<span>*</span></label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="chair"
+        required
+      />
+      <div
+        class="form-text text-danger"
+        *ngIf="Chair.invalid && (Chair.dirty || Chair.touched)"
+      >
+        <div *ngIf="Chair.errors?.['required']">Chair Name is required.</div>
+        <div *ngIf="Chair.errors?.['minlength']">Chair Name is too short.</div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Event Name<span>*</span></label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="event"
+        id="event"
+      />
+      <div
+        class="form-text text-danger"
+        *ngIf="Event.invalid && (Event.dirty || Event.touched)"
+      >
+        <div *ngIf="Event.errors?.['required']">Event Name is required.</div>
+        <div *ngIf="Event.errors?.['minlength']">Event Name is too short.</div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Spend Purpose<span>*</span></label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="spend"
+        id="spend"
+      />
+      <div
+        class="form-text text-danger"
+        *ngIf="Spend.invalid && (Spend.dirty || Spend.touched)"
+      >
+        <div *ngIf="Spend.errors?.['required']">Spend Name is required.</div>
+        <div *ngIf="Spend.errors?.['minlength']">Spend Name is too short.</div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Event Date</label>
+      <input
+        type="date"
+        class="form-control"
+        formControlName="date"
+        id="date"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">EO Category<span>*</span></label>
+      <select class="form-control" formControlName="category">
+        <option value=""></option>
+        <option *ngFor="let value of category">{{ value }}</option>
+      </select>
+      <div
+        class="form-text text-danger"
+        *ngIf="Category.invalid && (Category.dirty || Category.touched)"
+      >
+        <div *ngIf="Category.errors?.['required']">
+          Kindly select the category.
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Amount<span>*</span></label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="amount"
+        id="amount"
+      />
+      <div
+        class="form-text text-danger"
+        *ngIf="Amount.invalid && (Amount.dirty || Amount.touched)"
+      >
+        <div *ngIf="Amount.errors?.['required']">Kindly fill the amount.</div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Recipt 1</label>
+      <input
+        type="file"
+        class="form-control"
+        formControlName="recipt1"
+        id="recipt1"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Recipt 2</label>
+      <input
+        type="file"
+        class="form-control"
+        formControlName="recipt2"
+        id="recipt2"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Note or Documentation?</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="note"
+        id="note"
+      />
+    </div>
+    <div class="row">
+      <div class="col text-center p-2 mb-3 bg-light">
+        <h1 class="fs-3">Make Payable Details</h1>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Submitted By<span>*</span></label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="submitted"
+        id="submitted"
+      />
+      <div
+        class="form-text text-danger"
+        *ngIf="Submitted.invalid && (Submitted.dirty || Submitted.touched)"
+      >
+        <div *ngIf="Submitted.errors?.['required']">
+          This field is required..
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Check Payable To<span>*</span></label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="check"
+        id="check"
+      />
+      <div
+        class="form-text text-danger"
+        *ngIf="Check.invalid && (Check.dirty || Check.touched)"
+      >
+        <div *ngIf="Check.errors?.['required']">This field can't be empty.</div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Address<span>*</span></label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="address"
+        id="address"
+      />
+      <div
+        class="form-text text-danger"
+        *ngIf="Address.invalid && (Address.dirty || Address.touched)"
+      >
+        <div *ngIf="Address.errors?.['required']">Address is mandatory.</div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Email Notification<span>*</span></label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="notification"
+        id="notification"
+      />
+      <div
+        class="form-text text-danger"
+        *ngIf="
+          Notification.invalid && (Notification.dirty || Notification.touched)
+        "
+      >
+        <div *ngIf="Notification.errors?.['required']">Email is required.</div>
+        <div *ngIf="Notification.errors?.['email']">
+          Email must be a valid email address
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Submission PIN<span>*</span></label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="submission"
+        id="submission"
+      />
+      <div
+        class="form-text text-danger"
+        *ngIf="Submission.invalid && (Submission.dirty || Submission.touched)"
+      >
+        <div *ngIf="Submission.errors?.['required']">
+          Submission PIN is required.
+        </div>
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary btn-lg ms-3"
+      [disabled]="registerForm.invalid"
+      (click)="submitData()"
+    >
+      Register
+    </button>
+
+    <button
+      type="button"
+      class="btn btn-secondary btn-lg ms-3"
+      routerLink="/home"
+    >
+      Close
+    </button>
+  </form>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <h5>Thanks for registration!!!</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

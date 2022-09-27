@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="Admin">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link navbar-brand" routerLink="/home">Home</a>
+    <a class="nav-item nav-link navbar-brand" routerLink="/form"
+      >Reimbursement</a
+    >
+    <a class="nav-item nav-link navbar-brand" routerLink="/admin">Admin</a>
+    <a class="nav-item nav-link navbar-brand" (click)="logOut()"> Logout</a>
+    <!-- <a class="nav-item nav-link navbar-brand" routerLink="/accountant"
+      >Accountant</a
+    > -->
+    <!-- <a class="nav-item nav-link navbar-brand" routerLink="/finance">Finance</a> -->
+  </div>
+</nav>
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="!Admin">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link navbar-brand" routerLink="/home">Home</a>
+    <a class="nav-item nav-link navbar-brand" routerLink="/form"
+      >Reimbursement</a
+    >
+    <a
+      class="nav-item nav-link navbar-brand"
+      (click)="loginn()"
+      routerLink="/login"
+      >Login</a
+    >
+  </div>
+</nav>
+
+<!-- <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="Finance">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link navbar-brand" routerLink="/home">Home</a>
+    <a class="nav-item nav-link navbar-brand" routerLink="/form"
+      >Reimbursement</a
+    >
+    <a class="nav-item nav-link navbar-brand" routerLink="/finance">Finance</a>
+    <a class="nav-item nav-link navbar-brand" (click)="logOut()"> Logout</a>
+  </div>
+</nav> -->
+
+<!-- <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="Accountant">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link navbar-brand" routerLink="/home">Home</a>
+    <a class="nav-item nav-link navbar-brand" routerLink="/form"
+      >Reimbursement</a
+    >
+    <a class="nav-item nav-link navbar-brand" routerLink="/accountant"
+      >Accountant</a
+    >
+
+    <a class="nav-item nav-link navbar-brand" (click)="logOut()"> Logout</a>
+  </div>
+</nav> -->
