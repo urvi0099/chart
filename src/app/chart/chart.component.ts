@@ -43,22 +43,25 @@ export class ChartComponent implements OnInit {
   ngOnInit(): void {
     this.service.getUserdata().subscribe((allData) => {
       this.userdata = allData;
-      this.amt = this.userdata.map((category: any) => category.amount);
+      this.amt = this.userdata.map((category: userData) => category.amount);
       this.category = this.userdata.map(
-        (category: any) => category.eo_category
+        (category: userData) => category.eo_category
       );
-      this.amount = this.category_label.map((category: any) => {
+      this.amount = this.category_label.map((category: userData) => {
         this.index = this.category.indexOf(category);
         if (this.index !== -1) return this.userdata[this.index].amount;
         return null;
       });
-      this.repeated_ele = this.category.reduce((a: any, b: any, i: any) => {
-        if (!a.hasOwnProperty(b)) {
-          a[b] = 0;
-        }
-        a[b] += Number(this.amt[i]);
-        return a;
-      }, {});
+      this.repeated_ele = this.category.reduce(
+        (a: any, b: string | number, i: string | number) => {
+          if (!a.hasOwnProperty(b)) {
+            a[b] = 0;
+          }
+          a[b] += Number(this.amt[i]);
+          return a;
+        },
+        {}
+      );
       this.chartData();
     });
   }
@@ -105,4 +108,5 @@ export class ChartComponent implements OnInit {
       // plugins: [ChartDataLabels],
     });
   }
+
 }
