@@ -86,7 +86,7 @@ export class FormComponent implements OnInit {
       // console.log(result);
     });
     this.formModal.show();
-    this.registerForm.reset();
+    //this.registerForm.reset();
   }
   // ****************   bts   *********
 
@@ -159,9 +159,10 @@ export class FormComponent implements OnInit {
       message: 'hello,this is test mail.',
     };
     emailjs
-      .send('service_nstrl3h', 'template_pngfe42', param)
-      .then(function (res: { status: string }) {
-        alert('success' + res.status);
+      .send('service_76a5lw9', 'template_pngfe42', param)
+      .then(function (res: { status: string; text: string }) {
+        alert('SUCCESS!' + res.status + res.text);
       });
+    this.registerForm.reset();
   }
 }

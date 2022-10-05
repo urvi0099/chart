@@ -35,6 +35,9 @@ export class UserdataService {
   deleteUser(id: userData) {
     return this.http.delete(`${this.url}/${id}`);
   }
+
+  getUserdataById(id: userData) {
+    return this.http.get(`${this.url}/${id}`);
+  }
   editUserdata() {}
-  getUserdataById() {}
 }

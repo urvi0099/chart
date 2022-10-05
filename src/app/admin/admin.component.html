@@ -14,19 +14,21 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="center-align" *ngFor="let value of userdata">
-      <td scope="col">{{ value.id }}</td>
+    <tr class="center-align" *ngFor="let value of userdata; let i = index">
+      <td scope="col">{{ i + 1 }}</td>
       <td scope="col">{{ value.submitted_by }}</td>
       <td scope="col">{{ value.event_name }}</td>
       <td scope="col">{{ value.spend_purpose }}</td>
       <td scope="col">{{ value.eo_category }}</td>
       <td scope="col">{{ value.pay_to }}</td>
       <td scope="col">{{ value.amount }}</td>
-      <td scope="col" style="width: 200px">
-        <span *ngIf="approve" style="color: blue" (click)="approve1()"
+      <td scope="col" style="width: 150px">
+        <span *ngIf="approve" style="color: blue" (click)="approve1(value.id)"
           >Mark Approve</span
         >
-        <span *ngIf="mark" style="color: red" (click)="mark1()">Mark Paid</span>
+        <span *ngIf="mark" style="color: red" (click)="mark1(value.id)"
+          >Mark Paid</span
+        >
         <span *ngIf="paid" style="color: green">Paid</span>
       </td>
       <td
